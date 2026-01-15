@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Ultimate Etimad Extractor",
+  "description": "Extract Etimad competition data, tables, evaluation criteria, and attachments into Google Sheets & Drive.",
+  "version": "0.1.0",
+  "action": {
+    "default_title": "Ultimate Etimad Extractor",
+    "default_popup": "src/popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://etimad.sa/*",
+    "https://*.etimad.sa/*",
+    "https://www.googleapis.com/*"
+  ],
+  "oauth2": {
+    "client_id": "203228728605-6d2alsg5r9bmssisouo9bi2nkrpku3cf.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/drive.file",
+      "https://www.googleapis.com/auth/spreadsheets"
+    ]
+  },
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://etimad.sa/*", "https://*.etimad.sa/*"],
+      "js": ["src/contentScript.js"]
+    }
+  ]
+}
