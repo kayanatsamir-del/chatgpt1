@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ultimate Etimad Extractor</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div class="logo">⚡</div>
+        <div>
+          <h1>Ultimate Etimad Extractor</h1>
+          <p>تصدير بيانات المنافسات إلى Google Sheets وDrive</p>
+        </div>
+      </header>
+
+      <section class="settings">
+        <label class="field">
+          <span>Google Sheet ID (اختياري)</span>
+          <input id="sheetId" type="text" placeholder="أدخل Sheet ID أو اتركه فارغًا للإنشاء" />
+        </label>
+        <label class="toggle">
+          <input id="autoExport" type="checkbox" />
+          <span>تفعيل التصدير التلقائي</span>
+        </label>
+      </section>
+
+      <section class="actions">
+        <button id="exportBtn" class="primary">Export to Google Sheets</button>
+        <button id="detectBtn" class="secondary">تحقق من الصفحة</button>
+      </section>
+
+      <section class="progress">
+        <h2>حالة الاستخلاص</h2>
+        <ul id="progressList">
+          <li data-step="page">اكتشاف الصفحة</li>
+          <li data-step="extract">استخلاص البيانات</li>
+          <li data-step="sheet">الكتابة إلى Google Sheets</li>
+          <li data-step="attachments">تحميل المرفقات</li>
+        </ul>
+      </section>
+
+      <section class="log">
+        <h2>السجل</h2>
+        <div id="logList" class="log-list"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./popup.js"></script>
+  </body>
+</html>
